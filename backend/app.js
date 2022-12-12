@@ -1,15 +1,16 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const router = require("./routes/book-routes");
-const cors = require("cors");
-const app = express();
+const express = require("express")
+const mongoose = require("mongoose")
+const router = require("./routes/book-routes")
+const cors = require("cors")
+const app = express()
 
-app.use(express.json());
-app.use(cors());
-app.use("/books",router)
+app.use(express.json())
+app.use(cors())
+app.use("/books", router)
 
 mongoose
   .connect(
+<<<<<<< HEAD
     "mongodb+srv://kan:Hm3yju34TfEUSd4p@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected To Database"))
@@ -17,8 +18,16 @@ mongoose
     app.listen(5001);
     })
   .catch((err) => console.log(err));
+=======
+    "mongodb+srv://user2:dsNuyRBYH8Yw0g6a@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority",
+  )
+  .then(() => console.log("Connected To Database"))
+  .then(() => {
+    app.listen(5000)
+  })
+  .catch((err) => console.log(err))
+>>>>>>> c840e35a959a484f1629ea881c6d07ed08ac2210
 
-  
 // "mongodb+srv://admin:gTZgx6EIgpGP5PyA@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority"
 // user2:dsNuyRBYH8Yw0g6a
 
