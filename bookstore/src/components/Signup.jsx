@@ -27,7 +27,7 @@ const SignUp = () => {
     // toast({msg: "something went wrong", type: "error"})
 
     // example toast
-    toast({ msg: "fail !!!", type: "error" })
+    toast({msg: "you are sign in", type: "success"})
   }
 
   return (

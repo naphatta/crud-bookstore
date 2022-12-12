@@ -18,9 +18,9 @@ const Books = () => {
       <ul>
         {books &&
           books.map((book, i) => (
-            <div className="book" key={i}>
+            <li className="book" key={i}>
               <Book book={book} />
-            </div>
+            </li>
           ))}
       </ul>
     </div>

@@ -26,7 +26,7 @@ const Login = () => {
     // toast({ msg: "welcome back", type: "success" })
 
     // example toast
-    toast({ msg: "this is toast message", type: "success" })
+    toast({ msg: "welcome back", type: "success" })
   }
 
   return (
