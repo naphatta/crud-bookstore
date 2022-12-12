@@ -15,17 +15,17 @@ const Book = (props) => {
       .then(() => history("/books"))
   }
   return (
-    <div classname="card">
+    <div className="card">
       <img src={image} alt={name} />
       <article>By {author}</article>
       <h3>{name}</h3>
       <p>{description}</p>
-      <h2>{price} Bath</h2>
-      <Button LinkComponent={Link} to={`/books/${_id}`}>
+      <h3>{price} Bath</h3>
+      <Button LinkComponent={Link} to={`/books/${_id}`} sx={{mt:'auto'}}>
         {" "}
         Update
       </Button>
-      <Button onClick={deleteHandler}>Delete</Button>
+      <Button onClick={deleteHandler} sx={{mt:'auto'}}>Delete</Button>
     </div>
   )
 }
