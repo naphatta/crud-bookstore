@@ -18,7 +18,7 @@ const Login = () => {
     })
 
     // connnect api
-
+//ถ้าต่อapi เสร็จก็ไปเรียกข้างล่าง
     // if api response fail
     // toast({ msg: "fail ediot", type: "error" })
 
@@ -27,6 +27,11 @@ const Login = () => {
 
     // example toast
     toast({ msg: "welcome back", type: "success" })
+    //if success
+    localStorage.setItem("isLoggedIn", JSON.stringify(true))
+    document.location.href="/";
+    //log out set false
+    
   }
 
   return (
