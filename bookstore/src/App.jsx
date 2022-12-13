@@ -2,7 +2,6 @@ import Header from "./components/Header"
 import "./App.css"
 import { Route, Routes, Navigate, json } from "react-router-dom"
 import React, { useState } from "react"
-import Home from "./components/Home"
 import AddBook from "./components/AddBook"
 import Books from "./components/Book/Books"
 import About from "./components/About"
@@ -16,7 +15,7 @@ function App() {
 
   const AuthWrapper = ({ isAuthenticated }) => {
     return isAuthenticated === true ? (
-      <Navigate to="/books" element={<Home />} replace />
+      <Navigate to="/books" element={<Books />} replace />
     ) : (
       <Navigate to="/login" element={<Login />} replace />
     )
@@ -38,7 +37,7 @@ function App() {
             path="/"
             element={<AuthWrapper isAuthenticated={isLoggedIn} />}
           />
-          <Route path="/" element={<Home />} exact />
+          <Route path="/" element={<Books />} exact />
           <Route path="/login" element={<Login />} exact />
           <Route path="/sign-up" element={<SignUp />} exact />
           <Route path="/add" element={<AddBook />} exact />

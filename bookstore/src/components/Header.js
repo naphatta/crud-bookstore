@@ -10,7 +10,7 @@ const Header = () => {
     <div>
       <AppBar sx={{ backgroundColor: "#232F3D" }} position="sticky">
         <Toolbar>
-          <NavLink to="/" style={{ color: "white" }}>
+          <NavLink to="/books" style={{ color: "white" }}>
             <Typography>
               <MenuBookOutlinedIcon />
             </Typography>
@@ -22,10 +22,24 @@ const Header = () => {
             value={value}
             onChange={(e, val) => setValue(val)}
           >
-            <Tab LinkComponent={NavLink} to="/add" label="Add product" />
-            <Tab LinkComponent={NavLink} to="/books" label="Books" />
-            <Tab LinkComponent={NavLink} to="/about" label="About Us" />
+            {!isLoggedIn ? (
+              <Tab LinkComponent={NavLink} to="/login" label="Add product" />
+            ) : (
+              <Tab LinkComponent={NavLink} to="/add" label="Add product" />
+            )}
+            {!isLoggedIn ? (
+              <Tab LinkComponent={NavLink} to="/login" label="books" />
+            ) : (
+              <Tab LinkComponent={NavLink} to="/books" label="books" />
+            )}
+            {!isLoggedIn ? (
+              <Tab LinkComponent={NavLink} to="/login" label="About us" />
+            ) : (
+              <Tab LinkComponent={NavLink} to="/about" label="About us" />
+            )}
+
             <Tab LinkComponent={NavLink} to="/sign-up" label="Sign up" />
+              
             {!isLoggedIn ? (
               <Tab LinkComponent={NavLink} to="/login" label="Login" />
             ) : (
