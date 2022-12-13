@@ -5,11 +5,9 @@ import { useNavigate } from "react-router-dom"
 import UilUser from "@iconscout/react-unicons/icons/uil-user"
 import { FormTmpl, TextField, PasswdField } from "./common"
 import { useToast } from "./toast"
-import withReactContent from 'sweetalert2-react-content'
 
 const Login = () => {
-  
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const [email, setEmail] = useState("")
   const [passwd, setPasswd] = useState("")
@@ -21,36 +19,34 @@ const Login = () => {
       email,
       passwd,
     })
-    
-    var raw =JSON.stringify({
-      "password": passwd,
-      "expiresIn": 60000
+
+    var raw = JSON.stringify({
+      username: email,
+      password: passwd,
+      expiresIn: 60000,
     })
     const options = {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: raw,
-      redirect:'follow'
-    };
-    
-    fetch('https://www.melivecode.com/api/login', options)
-      .then(response => response.json())
-      .then(result => {
+      redirect: "follow",
+    }
+
+    fetch("https://www.melivecode.com/api/login", options)
+      .then((response) => response.json())
+      .then((result) => {
         console.log(result)
-        if(result.status === 'ok'){
-          toast({ msg: "welcome back", type: "success" })
-          .then((value)=>{
-            localStorage.setItem("isLoggedIn", JSON.stringify(true))
-            navigate('/')
-          })
-        }
-        else{
+        if (result.status === "ok") {
+          localStorage.setItem("isLoggedIn", JSON.stringify(true))
+          document.location.href = "/"
+        } else {
           toast({ msg: "fail ediot", type: "error" })
         }
       })
-      .catch(err => console.error(err));
+      .catch((err) => console.error(err))
   }
 
+  return (
     <FormTmpl
       logo={UilUser}
       imgComponent={
@@ -93,6 +89,7 @@ const Login = () => {
       ]}
       onSubmit={handleFormSubmit}
     />
+  )
 }
 
 export default Login
