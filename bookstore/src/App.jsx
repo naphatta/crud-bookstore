@@ -12,15 +12,16 @@ import SignUp from "./components/Signup"
 import { ToastProvider } from "./components/toast"
 import { useEffect } from "react"
 
-const AuthWrapper = ({ isAuthenticated }) => {
-  return isAuthenticated === true ? (
-    <Navigate to="/home" replace />
-  ) : (
-    <Navigate to="/login" replace />
-  )
-}
-
 function App() {
+  isAuthenticated=false
+  
+  const AuthWrapper = ({ isAuthenticated }) => {
+    return isAuthenticated === true ? (
+      <Navigate to="/home" element={<Home />} replace />
+    ) : (
+      <Navigate to="/login" element={<Login />} replace />
+    )
+  }
   const [isLoggedIn] = useState(JSON.parse(localStorage.getItem("isLoggedIn")))
   // login
   // localStorage.setItem("isLoggedIn", JSON.stringify(true))
@@ -38,7 +39,7 @@ function App() {
             path="/"
             element={<AuthWrapper isAuthenticated={isLoggedIn} />}
           />
-          <Route path="/home" element={<Home />} exact />
+          <Route path="/" element={<Home />} exact />
           <Route path="/login" element={<Login />} exact />
           <Route path="/sign-up" element={<SignUp />} exact />
           <Route path="/add" element={<AddBook />} exact />

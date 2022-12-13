@@ -10,23 +10,13 @@ app.use("/books", router)
 
 mongoose
   .connect(
-    "mongodb+srv://auto:YyEcEqYbLWcSilVT@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority",
+    "mongodb+srv://auto:YyEcEqYbLWcSilVT@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected To Database"))
   .then(() => {
-    app.listen(5000)
-  })
-  .catch((err) => console.log(err))
-
-  mongoose
-  .connect(
-    "mongodb+srv://auto:YyEcEqYbLWcSilVT@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority",
-  )
-  .then(() => console.log("Connected To Database"))
-  .then(() => {
-    app.listen(5001)
-  })
-  .catch((err) => console.log(err))
+    app.listen(5000);
+    })
+  .catch((err) => console.log(err));
 
 // "mongodb+srv://admin:gTZgx6EIgpGP5PyA@cluster0.zjprqqd.mongodb.net/?retryWrites=true&w=majority"
 // user2:dsNuyRBYH8Yw0g6a

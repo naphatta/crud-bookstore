@@ -27,13 +27,13 @@ const getById = async (req, res, next) => {
   return res.status(200).json({ book })
 }
 const addBook = async (req, res, next) => {
-  const { name, author, description, price, available, image } = req.body
+  const { name, author, amount, price, available, image } = req.body
   let book
   try {
     book = new Book({
       name,
       author,
-      description,
+      amount,
       price,
       available,
       image,
@@ -51,13 +51,13 @@ const addBook = async (req, res, next) => {
 
 const updateBook = async (req, res, next) => {
   const id = req.params.id
-  const { name, author, description, price, available, image } = req.body
+  const { name, author, amount, price, available, image } = req.body
   let book
   try {
     book = await Book.findByIdAndUpdate(id, {
       name,
       author,
-      description,
+      amount,
       price,
       available,
       image,

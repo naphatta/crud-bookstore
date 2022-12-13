@@ -5,8 +5,8 @@ import { Link } from "react-router-dom"
 const Home = () => {
   return (
     <div>
-      <Box display="flex" flexDirection="column" alignItems="center">
-        <h2>some text eiei.</h2>
+      <Box sx={{ marginTop: 10 }} display="flex" flexDirection="column" alignItems="center">
+        <h2>Welcome</h2>
         <Button
           LinkComponent={Link}
           to="/books"

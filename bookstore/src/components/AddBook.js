@@ -14,7 +14,7 @@ const AddBook = () => {
   const history = useNavigate()
   const [inputs, setInputs] = useState({
     name: "",
-    description: "",
+    amount: "",
     price: "",
     author: "",
     image: "",
@@ -32,7 +32,7 @@ const AddBook = () => {
       .post("http://localhost:5000/books", {
         name: String(inputs.name),
         author: String(inputs.author),
-        description: String(inputs.description),
+        amount: Number(inputs.amount),
         price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),
@@ -68,14 +68,14 @@ const AddBook = () => {
           name="author"
         />
 
-        <FormLabel>Description</FormLabel>
+        <FormLabel>amount</FormLabel>
         <TextField
-          value={inputs.description}
+          value={inputs.amount}
           onChange={handleChange}
           margin="normal"
           fullwidth
           variant="outlined"
-          name="description"
+          name="amount"
         />
 
         <FormLabel>Price</FormLabel>

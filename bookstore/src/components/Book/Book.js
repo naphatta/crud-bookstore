@@ -6,7 +6,7 @@ import "./Book.css"
 
 const Book = (props) => {
   const history = useNavigate()
-  const { _id, name, author, description, price, image } = props.book
+  const { _id, name, author, amount, price, image } = props.book
   const deleteHandler = async () => {
     await axios
       .delete(`http://localhost:5000/books/${_id}`)
@@ -19,8 +19,8 @@ const Book = (props) => {
       <img src={image} alt={name} />
       <article>By {author}</article>
       <h3>{name}</h3>
-      <p>{description}</p>
       <h3>{price} Bath</h3>
+      <p>amount : {amount}</p>
       <Button LinkComponent={Link} to={`/books/${_id}`} sx={{mt:'auto'}}>
         {" "}
         Update

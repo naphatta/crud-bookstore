@@ -29,7 +29,7 @@ const BookDetail = () => {
       .put(`http://localhost:5000/books/${id}`, {
         name: String(inputs.name),
         author: String(inputs.author),
-        description: String(inputs.description),
+        amount: String(inputs.amount),
         price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),
@@ -71,14 +71,15 @@ const BookDetail = () => {
               name="author"
             />
 
-            <FormLabel>Description</FormLabel>
+            <FormLabel>amount</FormLabel>
             <TextField
-              value={inputs.description}
+              value={inputs.amount}
               onChange={handleChange}
+              type="number"
               margin="normal"
               fullwidth
               variant="outlined"
-              name="description"
+              name="amount"
             />
 
             <FormLabel>Price</FormLabel>
