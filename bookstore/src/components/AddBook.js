@@ -47,7 +47,7 @@ const AddBook = () => {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Box display="flex" flexDirection="column" alignItems="center">
+      <Box sx={{ marginTop: 5 }} display="flex" flexDirection="column" alignItems="center">
         <FormLabel>Name</FormLabel>
         <TextField
           value={inputs.name}
@@ -72,6 +72,7 @@ const AddBook = () => {
         <TextField
           value={inputs.amount}
           onChange={handleChange}
+          type="number"
           margin="normal"
           fullwidth
           variant="outlined"

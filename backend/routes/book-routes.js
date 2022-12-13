@@ -15,7 +15,7 @@ module.exports = router
 "book": {
 		"name": "Sample",
 		"author": "ABC",
-		"amount": "this is sample",
+		"amount": 122,
 		"price": 2022,
 		"available": true,
 		"image": "http://www.plookfriends.com/blog/content/detail/79305/"

@@ -13,6 +13,7 @@ import { ToastProvider } from "./components/toast"
 import { useEffect } from "react"
 
 function App() {
+
   const AuthWrapper = ({ isAuthenticated }) => {
     return isAuthenticated === true ? (
       <Navigate to="/books" element={<Home />} replace />

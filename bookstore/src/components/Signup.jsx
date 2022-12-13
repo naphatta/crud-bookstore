@@ -3,8 +3,11 @@ import { NavLink } from "react-router-dom"
 import UilUserPlus from "@iconscout/react-unicons/icons/uil-user-plus"
 import { FormTmpl, TextField, PasswdField } from "./common"
 import { useToast } from "./toast"
+import { useNavigate } from "react-router-dom"
 
 const SignUp = () => {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("")
   const [passwd, setPasswd] = useState("")
   const [confirmPasswd, setConfirmPasswd] = useState("")
@@ -17,17 +20,45 @@ const SignUp = () => {
       passwd,
       confirmPasswd,
     })
+    const token=localStorage.getItem('token')
+    var myheaders =new Headers();
+    myheaders.append("Content-Type", "application/json")
 
-    // connect to api
-
-    // if api response success
-    // toast({msg: "you are sign in", type: "success"})
-
-    // else if api response error
-    // toast({msg: "something went wrong", type: "error"})
-
-    // example toast
-    toast({msg: "you are sign in", type: "success"})
+      
+    var raw =JSON.stringify({
+      "fname": email,
+      "lname": email,
+      "username": email,
+      "password": passwd,
+      "email": email,
+      "avatar": "https://www.melivecode.com/users/cat.png",
+    })
+    const options = {
+      method: 'POST',
+      headers: myheaders,
+      body: raw,
+      redirect:'follow'
+    };
+    
+    if(passwd!==confirmPasswd){toast({ msg: "fail passw", type: "error" })}
+    else{
+      fetch('https://www.melivecode.com/api/users/create', options)
+        .then(response => response.json())
+        .then(result => {
+          console.log(result)
+          if(result.status === 'ok'){
+            toast({ msg: "success", type: "success" })
+            .then(()=>{
+              navigate('/login')
+            })
+          }
+          else{
+            toast({ msg: "fail ediot", type: "error" })
+          }
+        })
+        .catch(err => console.error(err));  
+    }
+    
   }
 
   return (

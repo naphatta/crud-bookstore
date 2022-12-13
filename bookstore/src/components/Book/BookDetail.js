@@ -29,7 +29,7 @@ const BookDetail = () => {
       .put(`http://localhost:5000/books/${id}`, {
         name: String(inputs.name),
         author: String(inputs.author),
-        amount: String(inputs.amount),
+        amount: Number(inputs.amount),
         price: Number(inputs.price),
         image: String(inputs.image),
         available: Boolean(checked),

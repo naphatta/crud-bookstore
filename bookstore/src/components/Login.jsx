@@ -37,6 +37,7 @@ const Login = () => {
       .then((result) => {
         console.log(result)
         if (result.status === "ok") {
+          localStorage.setItem("token", result.accessToken)
           localStorage.setItem("isLoggedIn", JSON.stringify(true))
           document.location.href = "/"
         } else {
